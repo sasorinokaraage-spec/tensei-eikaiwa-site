@@ -366,20 +366,20 @@ window.SOUND_CHUNKS = [
   { id: 'meeting', rule: 'flap', text: 'meeting', kana: 'ミーリン', say: "meeding", re: /\bmeeting\b/i },
   { id: 'waiting', rule: 'flap', text: 'waiting', kana: 'ウェイリン', say: "waiding", re: /\bwaiting\b/i },
   { id: 'eating', rule: 'flap', text: 'eating', kana: 'イーリン', say: "eeding", re: /\beating\b/i },
-  { id: 'at_all', rule: 'flap', text: 'at all', kana: 'アロール', say: "uh dall", re: /\bat all\b/i },
+  { id: 'at_all', rule: 'flap', text: 'at all', kana: 'アロール', say: "a doll", re: /\bat all\b/i },
   { id: 'about_it', rule: 'flap', text: 'about it', kana: 'アバウリッ', say: "abowdit", re: /\babout it\b/i },
   { id: 'it_is_a', rule: 'flap', text: 'it is a', kana: 'イリザ', say: "idizza", re: /\bit is a\b/i },
   { id: 'what_is', rule: 'flap', text: 'what is', kana: 'ワリズ', say: "whaddiz", re: /\bwhat is\b/i },
   // 連結
-  { id: 'is_it', rule: 'link', text: 'is it', kana: 'イズィッ', say: "izzit", re: /\bis it\b/i },
-  { id: 'is_this', rule: 'link', text: 'is this', kana: 'イズィス', say: "izthis", re: /\bis this\b/i },
-  { id: 'is_that', rule: 'link', text: 'is that', kana: 'イザッ', say: "izzat", re: /\bis that\b/i },
+  { id: 'is_it', rule: 'link', text: 'is it', kana: 'イズィッ', re: /\bis it\b/i },
+  { id: 'is_this', rule: 'link', text: 'is this', kana: 'イズィス', re: /\bis this\b/i },
+  { id: 'is_that', rule: 'link', text: 'is that', kana: 'イザッ', re: /\bis that\b/i },
   { id: 'can_i', rule: 'link', text: 'can I', kana: 'キャナイ', re: /\bcan i\b/i },
   { id: 'come_in', rule: 'link', text: 'come in', kana: 'カミン', say: "cummin", re: /\bcome in\b/i },
-  { id: 'look_at', rule: 'link', text: 'look at', kana: 'ルカッ', say: "lookat", re: /\blook at\b/i },
-  { id: 'one_of', rule: 'link', text: 'one of', kana: 'ワノヴ', say: "wunnuv", re: /\bone of\b/i },
+  { id: 'look_at', rule: 'link', text: 'look at', kana: 'ルカッ', re: /\blook at\b/i },
+  { id: 'one_of', rule: 'link', text: 'one of', kana: 'ワノヴ', re: /\bone of\b/i },
   { id: 'have_a', rule: 'link', text: 'have a', kana: 'ハヴァ', say: "hava", re: /\bhave a\b/i },
-  { id: 'i_am', rule: 'link', text: 'I am a', kana: 'アイママ', say: "I amma", re: /\bi am a\b/i },
+  { id: 'i_am', rule: 'link', text: 'I am a', kana: 'アイママ', re: /\bi am a\b/i },
   { id: 'this_is', rule: 'link', text: 'this is', kana: 'ディスィズ', say: "thissis", re: /\bthis is\b/i },
   { id: 'in_an', rule: 'link', text: 'in a', kana: 'イナ', say: "inna", re: /\bin a\b/i },
   // 脱落
@@ -393,18 +393,18 @@ window.SOUND_CHUNKS = [
   { id: 'just_a', rule: 'drop', text: 'just a', kana: 'ジャスタ', say: "jussa", re: /\bjust a\b/i },
   { id: 'what_time', rule: 'drop', text: 'what time', kana: 'ワッタイム', re: /\bwhat time\b/i },
   // 同化
-  { id: 'did_you', rule: 'assim', text: 'did you', kana: 'ディジュ', say: "didja", re: /\bdid you\b/i },
-  { id: 'would_you', rule: 'assim', text: 'would you', kana: 'ウッジュ', say: "wouldja", re: /\bwould you\b/i },
+  { id: 'did_you', rule: 'assim', text: 'did you', kana: 'ディジュ', say: "dija", re: /\bdid you\b/i },
+  { id: 'would_you', rule: 'assim', text: 'would you', kana: 'ウッジュ', say: "wooja", re: /\bwould you\b/i },
   { id: 'dont_you', rule: 'assim', text: "don't you", kana: 'ドンチュ', say: "dontcha", re: /\bdon't you\b/i },
   { id: 'what_do_you', rule: 'assim', text: 'what do you', kana: 'ワダヤ', say: "whaddaya", re: /\bwhat do you\b/i },
   { id: 'meet_you', rule: 'assim', text: 'meet you', kana: 'ミーチュ', say: "meetcha", re: /\bmeet you\b/i },
-  { id: 'need_you', rule: 'assim', text: 'need you', kana: 'ニージュ', say: "needja", re: /\bneed you\b/i },
-  { id: 'called_you', rule: 'assim', text: 'called you', kana: 'コールジュ', say: "calledja", re: /\bcalled you\b/i },
-  { id: 'told_you', rule: 'assim', text: 'told you', kana: 'トウルジュ', say: "toldja", re: /\btold you\b/i },
+  { id: 'need_you', rule: 'assim', text: 'need you', kana: 'ニージュ', say: "neeja", re: /\bneed you\b/i },
+  { id: 'called_you', rule: 'assim', text: 'called you', kana: 'コールジュ', say: "call ja", re: /\bcalled you\b/i },
+  { id: 'told_you', rule: 'assim', text: 'told you', kana: 'トウルジュ', say: "toll ja", re: /\btold you\b/i },
   { id: 'about_you', rule: 'assim', text: 'about you', kana: 'アバウチュ', say: "aboutcha", re: /\babout you\b/i },
-  { id: 'and_you', rule: 'assim', text: 'and you', kana: 'アンジュ', say: "andja", re: /\band you\b/i },
-  { id: 'thank_you', rule: 'assim', text: 'thank you', kana: 'センキュ', say: "thankya", re: /\bthank you\b/i },
-  { id: 'what_did_you', rule: 'assim', text: 'what did you', kana: 'ワディジュ', say: "whaddidja", re: /\bwhat did you\b/i },
+  { id: 'and_you', rule: 'assim', text: 'and you', kana: 'アンジュ', say: "anja", re: /\band you\b/i },
+  { id: 'thank_you', rule: 'assim', text: 'thank you', kana: 'センキュ', say: "thank ya", re: /\bthank you\b/i },
+  { id: 'what_did_you', rule: 'assim', text: 'what did you', kana: 'ワディジュ', say: "whaddija", re: /\bwhat did you\b/i },
   // 弱形
   { id: 'going_to', rule: 'weak', text: 'going to', kana: 'ゴナ', say: "gonna", re: /\bgoing to\b(?! the| a | my| your| school| work| bed)/i },
   { id: 'want_to', rule: 'weak', text: 'want to', kana: 'ワナ', say: "wanna", re: /\bwant to\b/i },
@@ -413,17 +413,17 @@ window.SOUND_CHUNKS = [
   { id: 'kind_of', rule: 'weak', text: 'kind of', kana: 'カインダ', say: "kinda", re: /\bkind of\b/i },
   { id: 'out_of', rule: 'weak', text: 'out of', kana: 'アウラヴ', say: "outta", re: /\bout of\b/i },
   { id: 'i_will', rule: 'weak', text: 'I will', kana: 'アル', say: "I'll", re: /\bi will\b/i },
-  { id: 'will_you', rule: 'weak', text: 'will you', kana: 'ウィリュ', say: "willya", re: /\bwill you\b/i },
-  { id: 'for_you', rule: 'weak', text: 'for you', kana: 'フォユ', say: "ferya", re: /\bfor you\b/i },
+  { id: 'will_you', rule: 'weak', text: 'will you', kana: 'ウィリュ', say: "will ya", re: /\bwill you\b/i },
+  { id: 'for_you', rule: 'weak', text: 'for you', kana: 'フォユ', say: "for ya", re: /\bfor you\b/i },
   { id: 'than_last', rule: 'weak', text: 'than', kana: 'ザン（ほぼ「ズン」）', re: /\bthan\b/i },
   // have / been / if
-  { id: 'have_you_been', rule: 'been', text: 'have you been', kana: 'ハヴュビン', say: "havya bin", re: /\bhave you been\b/i },
+  { id: 'have_you_been', rule: 'been', text: 'have you been', kana: 'ハヴュビン', say: "have ya bin", re: /\bhave you been\b/i },
   { id: 'has_been', rule: 'been', text: 'has been', kana: 'ハズビン', say: "has bin", re: /\bhas been\b/i },
   { id: 'have_been', rule: 'been', text: 'have been', kana: 'ハヴビン', say: "have bin", re: /\bhave been\b/i },
   { id: 'if_i', rule: 'been', text: 'if I', kana: 'イファイ', re: /\bif i\b/i },
-  { id: 'if_you', rule: 'been', text: 'if you', kana: 'イフュ', say: "ifya", re: /\bif you\b/i },
+  { id: 'if_you', rule: 'been', text: 'if you', kana: 'イフュ', re: /\bif you\b/i },
   { id: 'because', rule: 'been', text: 'because', kana: 'カズ', say: "cuz", re: /\bbecause\b/i },
-  { id: 'have_you', rule: 'been', text: 'have you', kana: 'ハヴュ', say: "havya", re: /\bhave you\b(?! been)/i },
+  { id: 'have_you', rule: 'been', text: 'have you', kana: 'ハヴュ', say: "have ya", re: /\bhave you\b(?! been)/i },
   { id: 'i_have', rule: 'been', text: 'I have', kana: 'アイヴ', re: /\bi have (been|\w+ed|read|made|found|seen|done|wanted|waited|traveled|defeated|brought|received|heard)\b/i },
 ];
 
@@ -10751,7 +10751,9 @@ const keep=[];
 function spokenText(text){
   // From the dojo on, read this episode's sound chunks the way they really sound (not a -> nodda).
   try{ if(st.step<1) return text;
-    for(const c of episodeChunks()){ if(c.say) text = text.replace(new RegExp(c.re.source,'gi'), c.say); }
+    // Longest phrase first; never respell inside a contraction (if you're, it's).
+    const cs = episodeChunks().filter(c=>c.say).sort((a,b)=>b.text.length-a.text.length);
+    for(const c of cs){ text = text.replace(new RegExp(c.re.source+"(?![\\w'’])",'gi'), c.say); }
   }catch(e){}
   return text;
 }
