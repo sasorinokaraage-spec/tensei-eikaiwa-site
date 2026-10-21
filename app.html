@@ -312,6 +312,7 @@ The app uses the microphone only for pronunciation checks. Audio is passed to th
 
 <script>
 /* 音つなぎ（リエゾン・リダクション）のカリキュラム。
+   say は読み上げ用のつづり。読み上げエンジンは文字どおりに読むので、つながった音になるつづり（not a → nodda）を渡す。
    RULES は習う順番。CHUNKS の re はセリフの中から見つけるための正規表現（小文字・単語境界）。
    各パックの links（チャンクIDの配列）は tools/build_curriculum.js が、実際にセリフに出てくるものから選ぶ。 */
 window.SOUND_RULES = [
@@ -331,83 +332,83 @@ window.SOUND_RULES = [
 
 window.SOUND_CHUNKS = [
   // T → ラ行（L）
-  { id: 'not_a', rule: 'flap', text: 'not a', kana: 'ナラ', re: /\bnot a\b/i },
-  { id: 'get_a', rule: 'flap', text: 'get a', kana: 'ゲラ', re: /\bget a\b/i },
-  { id: 'got_a', rule: 'flap', text: 'got a', kana: 'ガラ', re: /\bgot a\b/i },
-  { id: 'what_are', rule: 'flap', text: 'what are', kana: 'ワラ', re: /\bwhat are\b/i },
-  { id: 'put_it', rule: 'flap', text: 'put it', kana: 'プリッ', re: /\bput it\b/i },
-  { id: 'get_it', rule: 'flap', text: 'get it', kana: 'ゲリッ', re: /\bget it\b/i },
-  { id: 'a_lot_of', rule: 'flap', text: 'a lot of', kana: 'アラロヴ', re: /\ba lot of\b/i },
-  { id: 'water', rule: 'flap', text: 'water', kana: 'ワーラー', re: /\bwater\b/i },
-  { id: 'computer', rule: 'flap', text: 'computer', kana: 'コンピューラー', re: /\bcomputers?\b/i },
-  { id: 'better', rule: 'flap', text: 'better', kana: 'ベラー', re: /\bbetter\b/i },
-  { id: 'matter', rule: 'flap', text: 'matter', kana: 'マラー', re: /\bmatter\b/i },
-  { id: 'city', rule: 'flap', text: 'city', kana: 'シリィ', re: /\bcity\b/i },
-  { id: 'party', rule: 'flap', text: 'party', kana: 'パーリィ', re: /\bparty\b/i },
-  { id: 'forty', rule: 'flap', text: 'forty', kana: 'フォーリィ', re: /\bforty\b/i },
-  { id: 'pretty', rule: 'flap', text: 'pretty', kana: 'プリリィ', re: /\bpretty\b/i },
-  { id: 'little', rule: 'flap', text: 'little', kana: 'リロウ', re: /\blittle\b/i },
-  { id: 'meeting', rule: 'flap', text: 'meeting', kana: 'ミーリン', re: /\bmeeting\b/i },
-  { id: 'waiting', rule: 'flap', text: 'waiting', kana: 'ウェイリン', re: /\bwaiting\b/i },
-  { id: 'eating', rule: 'flap', text: 'eating', kana: 'イーリン', re: /\beating\b/i },
-  { id: 'at_all', rule: 'flap', text: 'at all', kana: 'アロール', re: /\bat all\b/i },
-  { id: 'about_it', rule: 'flap', text: 'about it', kana: 'アバウリッ', re: /\babout it\b/i },
-  { id: 'it_is_a', rule: 'flap', text: 'it is a', kana: 'イリザ', re: /\bit is a\b/i },
-  { id: 'what_is', rule: 'flap', text: 'what is', kana: 'ワリズ', re: /\bwhat is\b/i },
+  { id: 'not_a', rule: 'flap', text: 'not a', kana: 'ナラ', say: "nodda", re: /\bnot a\b/i },
+  { id: 'get_a', rule: 'flap', text: 'get a', kana: 'ゲラ', say: "gedda", re: /\bget a\b/i },
+  { id: 'got_a', rule: 'flap', text: 'got a', kana: 'ガラ', say: "godda", re: /\bgot a\b/i },
+  { id: 'what_are', rule: 'flap', text: 'what are', kana: 'ワラ', say: "whadder", re: /\bwhat are\b/i },
+  { id: 'put_it', rule: 'flap', text: 'put it', kana: 'プリッ', say: "puddit", re: /\bput it\b/i },
+  { id: 'get_it', rule: 'flap', text: 'get it', kana: 'ゲリッ', say: "geddit", re: /\bget it\b/i },
+  { id: 'a_lot_of', rule: 'flap', text: 'a lot of', kana: 'アラロヴ', say: "a lodda", re: /\ba lot of\b/i },
+  { id: 'water', rule: 'flap', text: 'water', kana: 'ワーラー', say: "wadder", re: /\bwater\b/i },
+  { id: 'computer', rule: 'flap', text: 'computer', kana: 'コンピューラー', say: "compuder", re: /\bcomputers?\b/i },
+  { id: 'better', rule: 'flap', text: 'better', kana: 'ベラー', say: "bedder", re: /\bbetter\b/i },
+  { id: 'matter', rule: 'flap', text: 'matter', kana: 'マラー', say: "madder", re: /\bmatter\b/i },
+  { id: 'city', rule: 'flap', text: 'city', kana: 'シリィ', say: "siddy", re: /\bcity\b/i },
+  { id: 'party', rule: 'flap', text: 'party', kana: 'パーリィ', say: "pardy", re: /\bparty\b/i },
+  { id: 'forty', rule: 'flap', text: 'forty', kana: 'フォーリィ', say: "fordy", re: /\bforty\b/i },
+  { id: 'pretty', rule: 'flap', text: 'pretty', kana: 'プリリィ', say: "priddy", re: /\bpretty\b/i },
+  { id: 'little', rule: 'flap', text: 'little', kana: 'リロウ', say: "liddle", re: /\blittle\b/i },
+  { id: 'meeting', rule: 'flap', text: 'meeting', kana: 'ミーリン', say: "meeding", re: /\bmeeting\b/i },
+  { id: 'waiting', rule: 'flap', text: 'waiting', kana: 'ウェイリン', say: "waiding", re: /\bwaiting\b/i },
+  { id: 'eating', rule: 'flap', text: 'eating', kana: 'イーリン', say: "eeding", re: /\beating\b/i },
+  { id: 'at_all', rule: 'flap', text: 'at all', kana: 'アロール', say: "uh dall", re: /\bat all\b/i },
+  { id: 'about_it', rule: 'flap', text: 'about it', kana: 'アバウリッ', say: "abowdit", re: /\babout it\b/i },
+  { id: 'it_is_a', rule: 'flap', text: 'it is a', kana: 'イリザ', say: "idizza", re: /\bit is a\b/i },
+  { id: 'what_is', rule: 'flap', text: 'what is', kana: 'ワリズ', say: "whaddiz", re: /\bwhat is\b/i },
   // 連結
-  { id: 'is_it', rule: 'link', text: 'is it', kana: 'イズィッ', re: /\bis it\b/i },
-  { id: 'is_this', rule: 'link', text: 'is this', kana: 'イズィス', re: /\bis this\b/i },
-  { id: 'is_that', rule: 'link', text: 'is that', kana: 'イザッ', re: /\bis that\b/i },
+  { id: 'is_it', rule: 'link', text: 'is it', kana: 'イズィッ', say: "izzit", re: /\bis it\b/i },
+  { id: 'is_this', rule: 'link', text: 'is this', kana: 'イズィス', say: "izthis", re: /\bis this\b/i },
+  { id: 'is_that', rule: 'link', text: 'is that', kana: 'イザッ', say: "izzat", re: /\bis that\b/i },
   { id: 'can_i', rule: 'link', text: 'can I', kana: 'キャナイ', re: /\bcan i\b/i },
-  { id: 'come_in', rule: 'link', text: 'come in', kana: 'カミン', re: /\bcome in\b/i },
-  { id: 'look_at', rule: 'link', text: 'look at', kana: 'ルカッ', re: /\blook at\b/i },
-  { id: 'one_of', rule: 'link', text: 'one of', kana: 'ワノヴ', re: /\bone of\b/i },
-  { id: 'have_a', rule: 'link', text: 'have a', kana: 'ハヴァ', re: /\bhave a\b/i },
-  { id: 'i_am', rule: 'link', text: 'I am a', kana: 'アイママ', re: /\bi am a\b/i },
-  { id: 'this_is', rule: 'link', text: 'this is', kana: 'ディスィズ', re: /\bthis is\b/i },
-  { id: 'in_an', rule: 'link', text: 'in a', kana: 'イナ', re: /\bin a\b/i },
+  { id: 'come_in', rule: 'link', text: 'come in', kana: 'カミン', say: "cummin", re: /\bcome in\b/i },
+  { id: 'look_at', rule: 'link', text: 'look at', kana: 'ルカッ', say: "lookat", re: /\blook at\b/i },
+  { id: 'one_of', rule: 'link', text: 'one of', kana: 'ワノヴ', say: "wunnuv", re: /\bone of\b/i },
+  { id: 'have_a', rule: 'link', text: 'have a', kana: 'ハヴァ', say: "hava", re: /\bhave a\b/i },
+  { id: 'i_am', rule: 'link', text: 'I am a', kana: 'アイママ', say: "I amma", re: /\bi am a\b/i },
+  { id: 'this_is', rule: 'link', text: 'this is', kana: 'ディスィズ', say: "thissis", re: /\bthis is\b/i },
+  { id: 'in_an', rule: 'link', text: 'in a', kana: 'イナ', say: "inna", re: /\bin a\b/i },
   // 脱落
-  { id: 'let_me', rule: 'drop', text: 'let me', kana: 'レミー', re: /\blet me\b/i },
-  { id: 'last_night', rule: 'drop', text: 'last night', kana: 'ラスナイ', re: /\blast night\b/i },
-  { id: 'next_week', rule: 'drop', text: 'next week', kana: 'ネクスウィーク', re: /\bnext week\b/i },
-  { id: 'dont_know', rule: 'drop', text: "don't know", kana: 'ドンノウ', re: /\bdon't know\b/i },
+  { id: 'let_me', rule: 'drop', text: 'let me', kana: 'レミー', say: "lemme", re: /\blet me\b/i },
+  { id: 'last_night', rule: 'drop', text: 'last night', kana: 'ラスナイ', say: "lass night", re: /\blast night\b/i },
+  { id: 'next_week', rule: 'drop', text: 'next week', kana: 'ネクスウィーク', say: "necks week", re: /\bnext week\b/i },
+  { id: 'dont_know', rule: 'drop', text: "don't know", kana: 'ドンノウ', say: "dunno", re: /\bdon't know\b/i },
   { id: 'good_night', rule: 'drop', text: 'good night', kana: 'グッナイ', re: /\bgood night\b/i },
-  { id: 'sit_down', rule: 'drop', text: 'sit down', kana: 'スィッダウン', re: /\bsit down\b/i },
+  { id: 'sit_down', rule: 'drop', text: 'sit down', kana: 'スィッダウン', say: "siddown", re: /\bsit down\b/i },
   { id: 'dont_touch', rule: 'drop', text: "don't touch", kana: 'ドンタッチ', re: /\bdon't touch\b/i },
-  { id: 'just_a', rule: 'drop', text: 'just a', kana: 'ジャスタ', re: /\bjust a\b/i },
+  { id: 'just_a', rule: 'drop', text: 'just a', kana: 'ジャスタ', say: "jussa", re: /\bjust a\b/i },
   { id: 'what_time', rule: 'drop', text: 'what time', kana: 'ワッタイム', re: /\bwhat time\b/i },
   // 同化
-  { id: 'did_you', rule: 'assim', text: 'did you', kana: 'ディジュ', re: /\bdid you\b/i },
-  { id: 'would_you', rule: 'assim', text: 'would you', kana: 'ウッジュ', re: /\bwould you\b/i },
-  { id: 'dont_you', rule: 'assim', text: "don't you", kana: 'ドンチュ', re: /\bdon't you\b/i },
-  { id: 'what_do_you', rule: 'assim', text: 'what do you', kana: 'ワダヤ', re: /\bwhat do you\b/i },
-  { id: 'meet_you', rule: 'assim', text: 'meet you', kana: 'ミーチュ', re: /\bmeet you\b/i },
-  { id: 'need_you', rule: 'assim', text: 'need you', kana: 'ニージュ', re: /\bneed you\b/i },
-  { id: 'called_you', rule: 'assim', text: 'called you', kana: 'コールジュ', re: /\bcalled you\b/i },
-  { id: 'told_you', rule: 'assim', text: 'told you', kana: 'トウルジュ', re: /\btold you\b/i },
-  { id: 'about_you', rule: 'assim', text: 'about you', kana: 'アバウチュ', re: /\babout you\b/i },
-  { id: 'and_you', rule: 'assim', text: 'and you', kana: 'アンジュ', re: /\band you\b/i },
-  { id: 'thank_you', rule: 'assim', text: 'thank you', kana: 'センキュ', re: /\bthank you\b/i },
-  { id: 'what_did_you', rule: 'assim', text: 'what did you', kana: 'ワディジュ', re: /\bwhat did you\b/i },
+  { id: 'did_you', rule: 'assim', text: 'did you', kana: 'ディジュ', say: "didja", re: /\bdid you\b/i },
+  { id: 'would_you', rule: 'assim', text: 'would you', kana: 'ウッジュ', say: "wouldja", re: /\bwould you\b/i },
+  { id: 'dont_you', rule: 'assim', text: "don't you", kana: 'ドンチュ', say: "dontcha", re: /\bdon't you\b/i },
+  { id: 'what_do_you', rule: 'assim', text: 'what do you', kana: 'ワダヤ', say: "whaddaya", re: /\bwhat do you\b/i },
+  { id: 'meet_you', rule: 'assim', text: 'meet you', kana: 'ミーチュ', say: "meetcha", re: /\bmeet you\b/i },
+  { id: 'need_you', rule: 'assim', text: 'need you', kana: 'ニージュ', say: "needja", re: /\bneed you\b/i },
+  { id: 'called_you', rule: 'assim', text: 'called you', kana: 'コールジュ', say: "calledja", re: /\bcalled you\b/i },
+  { id: 'told_you', rule: 'assim', text: 'told you', kana: 'トウルジュ', say: "toldja", re: /\btold you\b/i },
+  { id: 'about_you', rule: 'assim', text: 'about you', kana: 'アバウチュ', say: "aboutcha", re: /\babout you\b/i },
+  { id: 'and_you', rule: 'assim', text: 'and you', kana: 'アンジュ', say: "andja", re: /\band you\b/i },
+  { id: 'thank_you', rule: 'assim', text: 'thank you', kana: 'センキュ', say: "thankya", re: /\bthank you\b/i },
+  { id: 'what_did_you', rule: 'assim', text: 'what did you', kana: 'ワディジュ', say: "whaddidja", re: /\bwhat did you\b/i },
   // 弱形
-  { id: 'going_to', rule: 'weak', text: 'going to', kana: 'ゴナ', re: /\bgoing to\b(?! the| a | my| your| school| work| bed)/i },
-  { id: 'want_to', rule: 'weak', text: 'want to', kana: 'ワナ', re: /\bwant to\b/i },
-  { id: 'have_to', rule: 'weak', text: 'have to', kana: 'ハフタ', re: /\bhave to\b/i },
-  { id: 'need_to', rule: 'weak', text: 'need to', kana: 'ニートゥ', re: /\bneed to\b/i },
-  { id: 'kind_of', rule: 'weak', text: 'kind of', kana: 'カインダ', re: /\bkind of\b/i },
-  { id: 'out_of', rule: 'weak', text: 'out of', kana: 'アウラヴ', re: /\bout of\b/i },
-  { id: 'i_will', rule: 'weak', text: 'I will', kana: 'アル', re: /\bi will\b/i },
-  { id: 'will_you', rule: 'weak', text: 'will you', kana: 'ウィリュ', re: /\bwill you\b/i },
-  { id: 'for_you', rule: 'weak', text: 'for you', kana: 'フォユ', re: /\bfor you\b/i },
+  { id: 'going_to', rule: 'weak', text: 'going to', kana: 'ゴナ', say: "gonna", re: /\bgoing to\b(?! the| a | my| your| school| work| bed)/i },
+  { id: 'want_to', rule: 'weak', text: 'want to', kana: 'ワナ', say: "wanna", re: /\bwant to\b/i },
+  { id: 'have_to', rule: 'weak', text: 'have to', kana: 'ハフタ', say: "hafta", re: /\bhave to\b/i },
+  { id: 'need_to', rule: 'weak', text: 'need to', kana: 'ニートゥ', say: "needa", re: /\bneed to\b/i },
+  { id: 'kind_of', rule: 'weak', text: 'kind of', kana: 'カインダ', say: "kinda", re: /\bkind of\b/i },
+  { id: 'out_of', rule: 'weak', text: 'out of', kana: 'アウラヴ', say: "outta", re: /\bout of\b/i },
+  { id: 'i_will', rule: 'weak', text: 'I will', kana: 'アル', say: "I'll", re: /\bi will\b/i },
+  { id: 'will_you', rule: 'weak', text: 'will you', kana: 'ウィリュ', say: "willya", re: /\bwill you\b/i },
+  { id: 'for_you', rule: 'weak', text: 'for you', kana: 'フォユ', say: "ferya", re: /\bfor you\b/i },
   { id: 'than_last', rule: 'weak', text: 'than', kana: 'ザン（ほぼ「ズン」）', re: /\bthan\b/i },
   // have / been / if
-  { id: 'have_you_been', rule: 'been', text: 'have you been', kana: 'ハヴュビン', re: /\bhave you been\b/i },
-  { id: 'has_been', rule: 'been', text: 'has been', kana: 'ハズビン', re: /\bhas been\b/i },
-  { id: 'have_been', rule: 'been', text: 'have been', kana: 'ハヴビン', re: /\bhave been\b/i },
+  { id: 'have_you_been', rule: 'been', text: 'have you been', kana: 'ハヴュビン', say: "havya bin", re: /\bhave you been\b/i },
+  { id: 'has_been', rule: 'been', text: 'has been', kana: 'ハズビン', say: "has bin", re: /\bhas been\b/i },
+  { id: 'have_been', rule: 'been', text: 'have been', kana: 'ハヴビン', say: "have bin", re: /\bhave been\b/i },
   { id: 'if_i', rule: 'been', text: 'if I', kana: 'イファイ', re: /\bif i\b/i },
-  { id: 'if_you', rule: 'been', text: 'if you', kana: 'イフュ', re: /\bif you\b/i },
-  { id: 'because', rule: 'been', text: 'because', kana: 'カズ', re: /\bbecause\b/i },
-  { id: 'have_you', rule: 'been', text: 'have you', kana: 'ハヴュ', re: /\bhave you\b(?! been)/i },
+  { id: 'if_you', rule: 'been', text: 'if you', kana: 'イフュ', say: "ifya", re: /\bif you\b/i },
+  { id: 'because', rule: 'been', text: 'because', kana: 'カズ', say: "cuz", re: /\bbecause\b/i },
+  { id: 'have_you', rule: 'been', text: 'have you', kana: 'ハヴュ', say: "havya", re: /\bhave you\b(?! been)/i },
   { id: 'i_have', rule: 'been', text: 'I have', kana: 'アイヴ', re: /\bi have (been|\w+ed|read|made|found|seen|done|wanted|waited|traveled|defeated|brought|received|heard)\b/i },
 ];
 
@@ -10199,15 +10200,28 @@ const canRecognize = () => NB ? !!(NB.hasRecognizer && NB.hasRecognizer()) : !!W
 
 let webVoices = [];
 const FEM=/female|samantha|karen|victoria|zira|aria|jenny|susan|allison|ava|google us english|michelle|joanna|salli|sfg|tpf|tpc|iob|iog/i;
-const MAL=/\bmale|daniel|alex\b|fred|david|guy|ryan|tom\b|aaron|matthew|brian|google uk english male|iol|iom|tpd/i;
+const MAL=/\bmale|daniel|alex\b|david|guy|ryan|tom\b|aaron|matthew|brian|google uk english male|iol|iom|tpd/i;
 function loadVoices(){ try{ webVoices = speechSynthesis.getVoices().filter(v=>/^en[-_]US/i.test(v.lang)); if(!webVoices.length) webVoices = speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)); }catch(e){} }
 if(!NB && 'speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+// Apple ships joke voices (Fred, Zarvox, Bells...) that sound like robots; never use them.
+const NOVELTY=/albert|bad news|bahh|bells|boing|bubbles|cellos|fred|good news|jester|organ|superstar|trinoids|whisper|wobble|zarvox|grandma|grandpa|rocko|shelley|flo|eddy|reed|sandy/i;
+const GOOD=/google|premium|enhanced|siri|natural|neural|online|samantha|aaron|nicky|alex\b|ava|evan|zoe|joelle|nathan|tom\b/i;
 function webVoice(g){
   const re = g==='f'?FEM:MAL, not = g==='f'?MAL:FEM;
-  return webVoices.find(v=>re.test(v.name)&&!not.test(v.name)) || webVoices[0] || null;
+  const ok = webVoices.filter(v=>!NOVELTY.test(v.name));
+  const rank = v => (GOOD.test(v.name)?2:0) + (re.test(v.name)&&!not.test(v.name)?1:0);
+  return ok.slice().sort((a,b)=>rank(b)-rank(a))[0] || null;
 }
 const keep=[];
+function spokenText(text){
+  // From the dojo on, read this episode's sound chunks the way they really sound (not a -> nodda).
+  try{ if(st.step<1) return text;
+    for(const c of episodeChunks()){ if(c.say) text = text.replace(new RegExp(c.re.source,'gi'), c.say); }
+  }catch(e){}
+  return text;
+}
 function speak(text, who, rate){
+  text = spokenText(text);
   const sp = L().sp[who]; const pitch = sp.pitch || 1;
   rate = Math.max(0.4, Math.min(1.6, rate));
   return new Promise(res=>{
@@ -10535,7 +10549,7 @@ async function runLinks(id){
     if(id!==runId) return;
     setActive(i); const m=arr[i][4], el=lineEl(i);
     if(m.kind==='phrase'){
-      await speak(m.c.text, st.role, 0.5); await sleep(250); if(id!==runId) return;
+      await speak(m.c.text, st.role, 0.75); await sleep(250); if(id!==runId) return;
       await speak(m.c.text, st.role, rates.casual()); await sleep(250); if(id!==runId) return;
     }
     el.querySelectorAll('.sen').forEach(x=>x.classList.add('on'));
